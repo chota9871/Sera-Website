@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Introduction about Sera" />
+  <meta name="author" content="Sera" />
+  <meta name="keywords" content="web development, digital marketing, Sera, introduction, creative">
+  <title>Introduction to Sera</title>
+
+  <!-- Add Open Graph for social sharing -->
+  <meta property="og:title" content="Introduction to Sera" />
+  <meta property="og:description" content="Sera is a creative and passionate individual dedicated to web development, design, and digital marketing." />
+  <meta property="og:image" content="{{ url_for('static', filename='sera.jpg') }}" />
+  <meta property="og:url" content="YOUR_SITE_URL_HERE" />
+
+  <!-- Add Twitter Card for social sharing -->
+  <meta name="twitter:title" content="Introduction to Sera" />
+  <meta name="twitter:description" content="Sera is a creative and passionate individual dedicated to web development, design, and digital marketing." />
+  <meta name="twitter:image" content="{{ url_for('static', filename='sera.jpg') }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  
+  <!-- Add a favicon for the website -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9f7f1;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #f3efe7;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    /* Hamburger Menu - always visible */
+    .hamburger-menu {
+      width: 30px;
+      height: 25px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .line {
+      width: 100%;
+      height: 4px;
+      background-color: #555;
+      border-radius: 2px;
+    }
+
+    /* Navbar - hidden by default */
+    .navbar {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #f3efe7;
+      width: 200px;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      font-weight: 600;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      z-index: 900;
+    }
+
+    .navbar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .navbar ul li {
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .navbar ul li a {
+      color: #333;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar ul li a:hover {
+      background-color: #e0d9cc;
+    }
+
+    /* Navbar visible when toggled */
+    .navbar.active {
+      display: flex;
+    }
+
+    .container {
+      margin: 30px auto;
+      max-width: 700px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .profile-pic {
+      width: 200px;
+      border-radius: 50%;
+      margin: 20px auto;
+      border: 5px solid #a69f8e;
+      box-shadow: 0 4px 8px rgba(166, 159, 142, 0.3);
+      display: block;
+    }
+
+    .bio h2 {
+      color: #4a453f;
+      margin-bottom: 12px;
+    }
+
+    .bio p {
+      line-height: 1.6;
+      color: #5a554a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #a69f8e;
+      color: #fff;
+      font-weight: 600;
+      margin-top: 40px;
+    }
+
+    /* Desktop styles */
+    @media (min-width: 768px) {
+      .navbar {
+        position: static;
+        width: auto;
+        background: none;
+        box-shadow: none;
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+        padding: 0;
+      }
+
+      .navbar ul {
+        flex-direction: row;
+        gap: 40px;
+        width: auto;
+      }
+
+      .navbar ul li {
+        padding: 0;
+        width: auto;
+        text-align: center;
+      }
+
+      .navbar ul li a {
+        padding: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to Sera's Introduction</h1>
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <img src="{{ url_for('static', filename='sera.jpg') }}" alt="Sera" class="profile-pic" />
+    <div class="bio">
+      <h2>About Sera</h2>
+      <p>Sera is a creative and passionate individual who is dedicated to her craft. She has a diverse set of skills, including web development, design, and digital marketing. With an eye for detail and a desire to always learn, Sera strives to make a meaningful impact in every project she undertakes.</p>
+      <p>When she's not working, Sera enjoys exploring new technologies, traveling, and learning about different cultures. She believes in the power of innovation and collaboration to achieve great things.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Sera. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>
