@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction about Sera">
+    <title>About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f7f1; /* Same background as home page */
+            color: #333; /* Same text color */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f3efe7; /* Matching header color */
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center;
+            position: relative;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-align: center;
+            flex-basis: 100%;
+        }
+
+        /* Navbar Styles */
+        nav {
+            display: flex;
+            justify-content: center; /* Center the navbar links */
+            width: 100%;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center the links inside the navbar */
+            gap: 40px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #e0d9cc; /* Soft highlight color */
+        }
+
+        /* Hamburger Menu */
+        .hamburger-menu {
+            width: 30px;
+            height: 25px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: absolute;
+            top: 20px;
+            right: 20px; /* Correctly aligned to the right */
+            z-index: 1000;
+        }
+
+        .line {
+            width: 100%;
+            height: 4px;
+            background-color: #555;
+            border-radius: 2px;
+        }
+
+        /* Navbar - hidden by default (for mobile) */
+        .navbar {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #f3efe7;
+            width: 200px;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            z-index: 900;
+        }
+
+        .navbar.active {
+            display: flex;
+        }
+
+        .container {
+            margin: 30px auto;
+            max-width: 700px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .bio h2 {
+            color: #4a453f;
+            margin-bottom: 12px;
+        }
+
+        .bio p {
+            line-height: 1.6;
+            color: #5a554a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #a69f8e;
+            color: #fff;
+            font-weight: 600;
+            margin-top: 40px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            /* Hamburger menu remains on the right for mobile */
+            .hamburger-menu {
+                right: 20px;
+                left: initial; /* Ensuring it stays on the right on mobile */
+                transform: translateX(0); /* No centering required here */
+            }
+        }
+    </style>
+</head>
+<body>
+
+  <header>
+    <h1>About Sera</h1>
+
+    <!-- Navbar -->
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('about') }}">About</a></li>
+        <li><a href="{{ url_for('services') }}">Services</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger Menu -->
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="bio">
+      <h2>About Me</h2>
+      <p>Hi there! I’m Sera, and welcome to my corner of the internet. I’m passionate about drawing, designing, and recently, I’ve started coding. I created this space to share my journey, ideas, and projects with you. Whether you’re here to explore my work, learn more about what I do, or just connect over shared interests, I’m glad you stopped by.</p>
+      <p>I’m always striving to grow and take on new challenges. This website is a place where I can showcase my projects, offer insights, and hopefully inspire others along the way.</p>
+      <p>Feel free to explore, and don’t hesitate to reach out if you’d like to chat or collaborate!</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Sera. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>
