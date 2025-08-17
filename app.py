@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return index24.html  # Home page
+    return render_template('index24.html')  # Home page
 
 @app.route('/about')
 def about():
@@ -21,4 +21,5 @@ def contact():
 if __name__ == '__main__':
     # Important: host='0.0.0.0' to accept external traffic on Render
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
