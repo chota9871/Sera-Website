@@ -8,19 +8,20 @@ def home():
 
 @app.route('/about')
 def about():
-    return render_template('About.html')  # About page
+    return render_template('about.html')  # About page
 
 @app.route('/services')
 def services():
-    return render_template('Service.html')  # Services page
+    return render_template('service.html')  # Services page
 
 @app.route('/contact')
 def contact():
-    return render_template('Contact.html')  # Contact page
+    return render_template('contact.html')  # Contact page
 
 if __name__ == '__main__':
     # Important: host='0.0.0.0' to accept external traffic on Render
     app.run(host='0.0.0.0', port=5000, debug=True)
+
 
 
 
